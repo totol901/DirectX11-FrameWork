@@ -7,8 +7,8 @@ namespace
 };
 
 c_System::c_System()
-	:m_Input(NULL),
-	m_Graphics(NULL)
+	:m_pInput(NULL),
+	m_pGraphics(NULL)
 {
 	g_System = this;
 }
@@ -29,24 +29,27 @@ bool c_System::Initialize()
 	InitializeWindows(screenWidth, screenHeight); 
 
 	// input 객체를 생성합니다. 이 객체는 유저로부터 들어오는 키보드 입력을 처리하기 이해 사용합니다. 
-	m_Input = new c_Input; 
-	if(!m_Input) 
+	m_pInput = new c_Input;
+	if(!m_pInput)
 	{ 
+		MessageBox(0, L"m_pInput 동적할당 오류", 0, 0);
 		return false; 
 	}
 	// Input 객체를 초기화합니다. 
-	m_Input->Initialize(); 
+	m_pInput->Initialize();
 
 	// graphics 객체를 생성합니다. 이 객체는 이 어플리케이션의 모든 그래픽 요소를 그리는 일을 합니다. 
-	m_Graphics = new c_Grapic; 
-	if(!m_Graphics) 
+	m_pGraphics = new c_Grapic;
+	if(!m_pGraphics)
 	{ 
+		MessageBox(0, L"m_pGraphics 동적할당 오류", 0, 0);
 		return false; 
 	}
 	// graphics 객체를 초기화합니다. 
-	result = m_Graphics->Initialize(screenWidth, screenHeight, m_hwnd); 
+	result = m_pGraphics->Initialize(screenWidth, screenHeight, m_hwnd);
 	if(!result) 
-	{ 
+	{
+		MessageBox(0, L"m_pGraphics 초기화 오류", 0, 0);
 		return false; 
 	} 
 	
@@ -56,16 +59,16 @@ bool c_System::Initialize()
 void c_System::Shutdown()
 {
 	// 그래픽 obj 릴리즈  
-	if (m_Graphics)
+	if (m_pGraphics)
 	{
-		m_Graphics->Shutdown();
-		SAFE_DELETE(m_Graphics);
+		m_pGraphics->Shutdown();
+		SAFE_DELETE(m_pGraphics);
 	}
 
 	// 인풋 obj 릴리즈  
-	if (m_Input)
+	if (m_pInput)
 	{
-		SAFE_DELETE(m_Input);
+		SAFE_DELETE(m_pInput);
 	}
 
 	//윈도우 종료
@@ -128,13 +131,13 @@ bool c_System::Frame()
 {
 	bool result;
 	//종료키 눌렀나 채크  
-	if (m_Input->IsKeyDown(VK_ESCAPE))
+	if (m_pInput->IsKeyDown(VK_ESCAPE))
 	{
 		return false;
 	}
 
 	//그래픽 obj에서 프래임 돌려줌
-	result = m_Graphics->Frame();
+	result = m_pGraphics->Frame();
 	//채크하여 종료 판별
 	if (!result)
 	{
@@ -152,14 +155,14 @@ LRESULT CALLBACK c_System::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam, L
 		case WM_KEYDOWN:
 		{
 			//키가 눌렸다면 처리
-			m_Input->KeyDown((unsigned int)wparam);
+			m_pInput->KeyDown((unsigned int)wparam);
 			return 0;
 		}
 		//키보드가 때졋는지 채크   
 		case WM_KEYUP:
 		{
 			//키가 때졋다면 처리
-			m_Input->KeyUp((unsigned int)wparam);
+			m_pInput->KeyUp((unsigned int)wparam);
 			return 0;
 		}
 		//다른 메시지 채크
@@ -199,7 +202,7 @@ bool c_System::InitializeWindows(int& screenWidth, int& screenHeight)
 	//윈도우 클래스 등록
 	if (!RegisterClassEx(&wc))
 	{
-		MessageBox(0, L"RegisterClass Failed.", 0, 0);
+		assert(0 && TEXT("윈도우 클래스 레지스터 초기화 오류"));
 		return false;
 	}
 

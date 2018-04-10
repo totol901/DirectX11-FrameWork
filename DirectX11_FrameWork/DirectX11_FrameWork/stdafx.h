@@ -10,9 +10,12 @@
 
 #define WIN32_LEAN_AND_MEAN 
 #include <Windows.h>
+#include "d3dx11Effect.h"
 #include <DirectXMath.h>
 #include <DirectXPackedVector.h>
 #include <cassert>
+#include "dxerr.h"
+#include <vector>
 
 using namespace DirectX;
 using namespace DirectX::PackedVector;
@@ -60,3 +63,17 @@ namespace Colors
 	XMGLOBALCONST DirectX::XMVECTORF32 Silver = { 0.75f, 0.75f, 0.75f, 1.0f };
 	XMGLOBALCONST DirectX::XMVECTORF32 LightSteelBlue = { 0.69f, 0.77f, 0.87f, 1.0f };
 }
+
+/** WCHAR -> CHAR 변형 함수(return 받은 값은 delete해줘야 함!) **/
+inline char* Convert_WCHAR_To_CHAR(WCHAR* wstr)
+{
+	char* pStr;
+	int strSize = WideCharToMultiByte(CP_ACP, 0,
+		wstr, -1,
+		NULL, 0, NULL, NULL);
+	pStr = new char[strSize];
+	WideCharToMultiByte(CP_ACP, 0, wstr,
+		-1, pStr, strSize, 0, 0);
+
+	return pStr;
+};

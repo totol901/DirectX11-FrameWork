@@ -22,6 +22,18 @@
     <Filter Include="3DGameFrameWork\System">
       <UniqueIdentifier>{84e6943a-944b-4bf7-aeda-185a7c407ebd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="3DGameFrameWork\Error">
+      <UniqueIdentifier>{c7e3b2c3-d814-4f05-89a8-a09c8b76bbb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3DGameFrameWork\System\Grapic">
+      <UniqueIdentifier>{95002b3b-2dc1-4562-9afb-a749d55d8a31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3DGameFrameWork\System\Input">
+      <UniqueIdentifier>{eb7d0c58-0019-4c95-8b6e-1455ab69711d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3DGameFrameWork\System\Grapic\D3D">
+      <UniqueIdentifier>{6550bd81-3f2f-4a8c-914e-b63d9d93dcc4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -36,11 +48,17 @@
     <ClInclude Include="c_System.h">
       <Filter>3DGameFrameWork\System</Filter>
     </ClInclude>
+    <ClInclude Include="Common\dxerr.h">
+      <Filter>3DGameFrameWork\Error</Filter>
+    </ClInclude>
+    <ClInclude Include="c_D3d.h">
+      <Filter>3DGameFrameWork\System\Grapic\D3D</Filter>
+    </ClInclude>
     <ClInclude Include="c_Grapic.h">
-      <Filter>3DGameFrameWork</Filter>
+      <Filter>3DGameFrameWork\System\Grapic</Filter>
     </ClInclude>
     <ClInclude Include="c_Input.h">
-      <Filter>Header Files</Filter>
+      <Filter>3DGameFrameWork\System\Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -53,11 +71,17 @@
     <ClCompile Include="c_System.cpp">
       <Filter>3DGameFrameWork\System</Filter>
     </ClCompile>
+    <ClCompile Include="Common\dxerr.cpp">
+      <Filter>3DGameFrameWork\Error</Filter>
+    </ClCompile>
+    <ClCompile Include="c_D3d.cpp">
+      <Filter>3DGameFrameWork\System\Grapic\D3D</Filter>
+    </ClCompile>
     <ClCompile Include="c_Grapic.cpp">
-      <Filter>3DGameFrameWork</Filter>
+      <Filter>3DGameFrameWork\System\Grapic</Filter>
     </ClCompile>
     <ClCompile Include="c_Input.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>3DGameFrameWork\System\Input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

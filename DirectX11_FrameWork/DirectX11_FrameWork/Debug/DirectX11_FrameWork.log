@@ -1,8 +1,11 @@
 ﻿  stdafx.cpp
+  WinMain.cpp
   c_System.cpp
   c_Input.cpp
   c_Grapic.cpp
-  WinMain.cpp
+  c_D3d.cpp
+c:\users\totol\documents\directx11-framework\directx11_framework\directx11_framework\c_d3d.cpp(45): warning C4018: '<': signed/unsigned mismatch
+c:\users\totol\documents\directx11-framework\directx11_framework\directx11_framework\c_d3d.cpp(89): warning C4018: '<': signed/unsigned mismatch
+c:\users\totol\documents\directx11-framework\directx11_framework\directx11_framework\c_d3d.cpp(107): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
-  DirectX11_FrameWork.vcxproj -> C:\Users\totol\Desktop\DirectX11_FrameWork\Debug\DirectX11_FrameWork.exe
-  DirectX11_FrameWork.vcxproj -> C:\Users\totol\Desktop\DirectX11_FrameWork\Debug\DirectX11_FrameWork.pdb (Full PDB)
+c:\users\totol\documents\directx11-framework\directx11_framework\directx11_framework\c_d3d.cpp(126): error C4716: 'c_D3d::Initialize': must return a value

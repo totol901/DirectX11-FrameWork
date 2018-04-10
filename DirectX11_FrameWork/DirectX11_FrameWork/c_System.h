@@ -11,8 +11,8 @@ private:
 	HWND m_hwnd;				//윈도우 헨들
 
 private:
-	c_Input* m_Input;			//인풋 obj
-	c_Grapic* m_Graphics;		//그래픽 obj
+	c_Input* m_pInput;			//인풋 obj
+	c_Grapic* m_pGraphics;		//그래픽 obj
 
 private:
 	/** 윈도우 초기화 함수 **/

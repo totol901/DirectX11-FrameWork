@@ -4,17 +4,19 @@
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline, int iCmdshow)
 { 
 	//메모리 릭 채크
-	#ifdef _DEBUG
+#ifdef _DEBUG
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-	#endif
+#endif
 
 	c_System* System; 
 	bool result; 
 
 	// system 객체를 생성한다. 
 	System = new c_System;
+
 	if(!System) 
 	{
+		MessageBox(0, L"System 동적할당 오류", 0, 0);
 		return 0; 
 	} 
 
