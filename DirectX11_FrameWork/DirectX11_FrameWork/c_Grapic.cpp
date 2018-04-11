@@ -2,6 +2,7 @@
 #include "c_Grapic.h"
 
 c_Grapic::c_Grapic()
+	:m_pD3D(NULL)
 { 
 } 
 
@@ -11,39 +12,80 @@ c_Grapic::~c_Grapic()
 
 bool c_Grapic::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 { 
+	bool result;
+
+	// Create the Direct3D object.
+	m_pD3D = new c_D3d;
+	if (!m_pD3D)
+	{
+		MessageBox(0, L"m_pD3D 동적할당 오류", 0, 0);
+		return false;
+	}
+
+	// Initialize the Direct3D object.
+	result = m_pD3D->Initialize(screenWidth, screenHeight,
+		VSYNC_ENABLED, hwnd, e_windowStyle, SCREEN_DEPTH, SCREEN_NEAR);
+	if (!result)
+	{
+		MessageBox(0, L"m_pD3D 초기화 오류", 0, 0);
+		return false;
+	}
 
 
-	//FeatureLevel 선언(최고 수준의 Level 받기위해)
-	//D3D_FEATURE_LEVEL featureLevel;
-	//HRESULT hr = D3D11CreateDevice(
-	//	0,                 // default adapter(기본 디스플레이 어댑터 설정)
-	//	md3dDriverType,	   // 3차원 그래픽 가속 적용
-	//	0,                 // no software device
-	//	createDeviceFlags, // 디바이스 플레그 설정
-	//	0, 0,              // default feature level array
-	//	D3D11_SDK_VERSION, // 항상 D3D11_SDK_VERSION 지정
-	//	&md3dDevice,	   // d3d장치 넣어줌 (Out 값)
-	//	&featureLevel,	   // featureLevel 넣어줌[현 사용가능 최고 수준의 Level 나옴] (OUt 값)
-	//	&md3dImmediateContext); // 장치 문맥(Context) 넣어줌 (Out 값)
-
-
-	
-
-	return true; 
+	return true;
 } 
 
 void c_Grapic::Shutdown() 
 { 
-	return; 
+	SAFE_DELETE(m_pD3D);
+
 } 
 
 bool c_Grapic::Frame() 
 { 
-	return true; 
+	bool result;
+
+	// 그래픽 신을 그려줌
+	result = Render();
+	if (!result)
+	{
+		return false;
+	}
+
+	return true;
 } 
 
 bool c_Grapic::Render() 
 { 
-	return true; 
+	XMMATRIX worldMatrix, viewMatrix, projectionMatrix;
+	bool result;
+
+
+	// Clear the buffers to begin the scene.
+	m_pD3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
+
+	// Generate the view matrix based on the camera's position.
+	m_Camera->Render();
+
+	// Get the world, view, and projection matrices from the camera and d3d objects.
+	m_Camera->GetViewMatrix(viewMatrix);
+	m_pD3D->GetWorldMatrix(worldMatrix);
+	m_pD3D->GetProjectionMatrix(projectionMatrix);
+
+	// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
+	m_Model->Render(m_D3D->GetDeviceContext());
+
+	// Render the model using the texture shader.
+	result = m_TextureShader->Render(m_D3D->GetDeviceContext(), m_Model->GetIndexCount(),
+		worldMatrix, viewMatrix, projectionMatrix, m_Model->GetTexture());
+	if (!result)
+	{
+		return false;
+	}
+
+	// Present the rendered scene to the screen.
+	m_D3D->EndScene();
+
+	return true;
 }
 

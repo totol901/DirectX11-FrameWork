@@ -252,14 +252,60 @@ bool c_D3d::Initialize(int screenWidth, int screenHeight,
 	OnResize(screenWidth, screenHeight);
 }
 
+void c_D3d::Shutdown()
+{
+	if (m_pSwapChain)
+	{
+		m_pSwapChain->SetFullscreenState(false, NULL);
+	}
+	
+	RELEASE_COM(m_pRasterState);
+	RELEASE_COM(m_pDepthStencilView);
+	RELEASE_COM(m_pDepthStencilState);
+	RELEASE_COM(m_pDepthStencilBuffer);
+	RELEASE_COM(m_pRenderTargetView);
+	RELEASE_COM(m_pDeviceContext);
+	RELEASE_COM(m_pDevice);
+	RELEASE_COM(m_pSwapChain);
+}
 
-void c_D3d::OnResize(int screenWidth, int screenHeight)
+void c_D3d::BeginScene(float red, float green, float blue, float alpha)
+{
+	XMVECTORF32 color = {red, green, blue, alpha};
+
+	// 벡버퍼 color로 지워줌
+	m_pDeviceContext->ClearRenderTargetView(m_pRenderTargetView, color);
+	// 깊이버퍼도 지워줌 
+	m_pDeviceContext->ClearDepthStencilView(m_pDepthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
+}
+
+void c_D3d::EndScene()
+{ 
+	// 벡버퍼에 올린 그림 화면으로 보냄 
+	if (m_vsync_enabled)
+	{
+		// 수직동기로 그려줌
+		HR(m_pSwapChain->Present(1, 0));
+	}
+	else
+	{
+		// 가능한 빨리 그려줌
+		HR(m_pSwapChain->Present(0, 0));
+	}
+}
+
+void c_D3d::GetVideoCardInfo(char * cardName, SIZE_T & memory)
+{
+	cardName = const_cast<char*>(m_videoCardDescription.c_str());
+	memory = m_videoCardMemory;
+}
+
+void c_D3d::OnResize(const int& screenWidth, const int& screenHeight)
 {
 	//이 함수에 쓰일 변수들 채크
 	assert(m_pDeviceContext);
 	assert(m_pDevice);
 	assert(m_pSwapChain);
-
 
 	//사용한 COM객체들 릴리즈
 	RELEASE_COM(m_pRenderTargetView);

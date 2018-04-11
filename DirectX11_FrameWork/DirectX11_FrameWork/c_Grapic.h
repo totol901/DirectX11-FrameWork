@@ -1,5 +1,7 @@
 #pragma once
 
+#include "c_D3d.h"
+
 //윈도우 창 스타일
 enum E_WINDOW_STYLE
 {
@@ -17,6 +19,7 @@ const float SCREEN_NEAR = 0.1f;
 class c_Grapic
 {
 private:
+	c_D3d* m_pD3D;
 	/** 그래픽 랜더 함수 **/
 	bool Render();
 

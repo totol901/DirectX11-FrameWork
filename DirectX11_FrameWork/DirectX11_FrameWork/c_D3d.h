@@ -3,7 +3,6 @@
 #include <fstream>
 #include <sstream>
 
-
 const bool ENABLE_4X_MSAA = false;
 
 class c_D3d
@@ -35,15 +34,16 @@ public:
 		bool vsync, HWND hwnd, bool fullscreen,
 		float screenDepth, float screenNear);
 	void Shutdown();
-	void BeginScene(float, float, float, float);
+	void BeginScene(float red, float green, 
+		float blue, float alpha);
 	void EndScene();
-	ID3D11Device* GetDevice();
-	ID3D11DeviceContext* GetDeviceContext();
-	void GetProjectionMatrix(FXMMATRIX&);
-	void GetWorldMatrix(FXMMATRIX&);
-	void GetOrthoMatrix(FXMMATRIX&);
-	void GetVideoCardInfo(char*, int&);
-	void OnResize(int screenWidth, int screenHeight);
+	ID3D11Device* GetDevice() const { return m_pDevice; }
+	ID3D11DeviceContext* GetDeviceContext() const { return m_pDeviceContext; }
+	const XMFLOAT4X4& GetProjectionMatrix() { return m_worldMatrix; }
+	const XMFLOAT4X4& GetWorldMatrix() { return m_worldMatrix; }
+	const XMFLOAT4X4& GetOrthoMatrix() { return m_orthoMatrix; }
+	void GetVideoCardInfo(char* cardName, SIZE_T& memory);
+	void OnResize(const int& screenWidth, const int& screenHeight);
 
 public:
 	c_D3d();
