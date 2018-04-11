@@ -2,14 +2,6 @@
 
 #include "c_D3d.h"
 
-//윈도우 창 스타일
-enum E_WINDOW_STYLE
-{
-	E_WINDOW_FULL_SCREEN,
-	E_FULL_SCREEN,
-	E_WINDOW
-};
-
 //글로벌 변수
 static E_WINDOW_STYLE e_windowStyle = E_WINDOW;
 const bool VSYNC_ENABLED = true; 

@@ -20,11 +20,10 @@ c_D3d::~c_D3d()
 {
 }
 
-bool c_D3d::Initialize(int screenWidth, int screenHeight,
-	bool vsync, HWND hwnd, bool fullscreen, 
-	float screenDepth, float screenNear)
+bool c_D3d::Initialize(const int& screenWidth, const int& screenHeight,
+	const bool& vsync, const HWND& hwnd, const E_WINDOW_STYLE& fullscreen,
+	const float& screenDepth, const float& screenNear)
 {
-
 	// vsync(수직동기화) 설정 저장
 	m_vsync_enabled = vsync;
 
@@ -52,7 +51,7 @@ bool c_D3d::Initialize(int screenWidth, int screenHeight,
 	
 	UINT MaxGrapicCardMemIndex = 0;
 	SIZE_T MaxMemSize = 0;
-	for (int i = 0; i < mAdpter; i++)
+	for (UINT i = 0; i < mAdpter; i++)
 	{
 		//어뎁터 정보를 어뎁터 정보 구조체에 넣어줌
 		DXGI_ADAPTER_DESC desc;
@@ -107,7 +106,7 @@ bool c_D3d::Initialize(int screenWidth, int screenHeight,
 	UINT numerator = 0;
 	UINT denominator = 0;
 	//DESC 출력해줌
-	for (int i = 0; i < numModes; i++)
+	for (UINT i = 0; i < numModes; i++)
 	{
 		outs << L"***WIDTH = " << displayModeList[i].Width
 			<< L" HEIGHT = " << displayModeList[i].Height
@@ -136,7 +135,7 @@ bool c_D3d::Initialize(int screenWidth, int screenHeight,
 	RELEASE_COM(pOutput);
 
 	//어뎁터 할당 해제
-	for (int i = 0; i < m_vAdapters.size(); i++)
+	for (UINT i = 0; i < m_vAdapters.size(); i++)
 	{
 		RELEASE_COM(m_vAdapters[i]);
 	}
@@ -250,6 +249,8 @@ bool c_D3d::Initialize(int screenWidth, int screenHeight,
 	RELEASE_COM(pFactory);
 
 	OnResize(screenWidth, screenHeight);
+
+	return true;
 }
 
 void c_D3d::Shutdown()
@@ -269,7 +270,8 @@ void c_D3d::Shutdown()
 	RELEASE_COM(m_pSwapChain);
 }
 
-void c_D3d::BeginScene(float red, float green, float blue, float alpha)
+void c_D3d::BeginScene(const float& red, const float& green,
+	const float& blue, const float& alpha)
 {
 	XMVECTORF32 color = {red, green, blue, alpha};
 
@@ -300,7 +302,7 @@ void c_D3d::GetVideoCardInfo(char * cardName, SIZE_T & memory)
 	memory = m_videoCardMemory;
 }
 
-void c_D3d::OnResize(const int& screenWidth, const int& screenHeight)
+void c_D3d::OnResize(int screenWidth, int screenHeight)
 {
 	//이 함수에 쓰일 변수들 채크
 	assert(m_pDeviceContext);
@@ -417,8 +419,8 @@ void c_D3d::OnResize(const int& screenWidth, const int& screenHeight)
 	//뷰포트 재설정
 	m_ScreenViewport.TopLeftX = 0.0f;
 	m_ScreenViewport.TopLeftY = 0.0f;
-	m_ScreenViewport.Width = screenWidth;
-	m_ScreenViewport.Height = screenHeight;
+	m_ScreenViewport.Width = static_cast<float>(screenWidth);
+	m_ScreenViewport.Height = static_cast<float>(screenHeight);
 	m_ScreenViewport.MinDepth = 0.0f;
 	m_ScreenViewport.MaxDepth = 1.0f;
 
