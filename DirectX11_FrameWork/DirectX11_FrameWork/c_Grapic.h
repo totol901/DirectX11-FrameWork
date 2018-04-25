@@ -3,10 +3,11 @@
 #include "c_D3d.h"
 
 //글로벌 변수
-static E_WINDOW_STYLE e_windowStyle = E_WINDOW;
 const bool VSYNC_ENABLED = true; 
 const float SCREEN_DEPTH = 1000.0f; 
 const float SCREEN_NEAR = 0.1f; 
+
+using namespace GameEngine;
 
 class c_Grapic
 {
@@ -17,7 +18,7 @@ private:
 
 public:
 	/** 그래픽 초기화 함수 **/
-	bool Initialize(int screenWidth, int screenHeight, HWND hwnd);
+	bool Initialize(int screenWidth, int screenHeight);
 	/** 그래픽 해제 함수 **/
 	void Shutdown(); 
 	/** 그래픽 프래임 함수 **/

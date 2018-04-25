@@ -151,28 +151,42 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Common\dxerr.h" />
+    <ClInclude Include="c_ColorShader.h" />
+    <ClInclude Include="c_ControlWindow.h" />
     <ClInclude Include="c_D3d.h" />
     <ClInclude Include="c_Grapic.h" />
-    <ClInclude Include="c_Input.h" />
+    <ClInclude Include="InputManager.h" />
+    <ClInclude Include="c_Model.h" />
     <ClInclude Include="c_System.h" />
+    <ClInclude Include="EnginBase.h" />
+    <ClInclude Include="GlobalManager.h" />
     <ClInclude Include="singletonBase.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="WinBase.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Common\dxerr.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="c_ColorShader.cpp" />
+    <ClCompile Include="c_ControlWindow.cpp" />
     <ClCompile Include="c_D3d.cpp" />
     <ClCompile Include="c_Grapic.cpp" />
-    <ClCompile Include="c_Input.cpp" />
+    <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="c_Model.cpp" />
     <ClCompile Include="c_System.cpp" />
+    <ClCompile Include="GlobalManager.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="WinMain.cpp" />
+    <ClCompile Include="WinBase.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="color.ps" />
+    <None Include="color.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

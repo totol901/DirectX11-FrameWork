@@ -13,17 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\SingletonBase">
-      <UniqueIdentifier>{3763f488-666f-452f-9135-d242c91f7c75}</UniqueIdentifier>
-    </Filter>
     <Filter Include="3DGameFrameWork">
       <UniqueIdentifier>{c04907d8-58fc-4878-a6c8-695f3f2e6d63}</UniqueIdentifier>
     </Filter>
     <Filter Include="3DGameFrameWork\System">
       <UniqueIdentifier>{84e6943a-944b-4bf7-aeda-185a7c407ebd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="3DGameFrameWork\Error">
-      <UniqueIdentifier>{c7e3b2c3-d814-4f05-89a8-a09c8b76bbb4}</UniqueIdentifier>
     </Filter>
     <Filter Include="3DGameFrameWork\System\Grapic">
       <UniqueIdentifier>{95002b3b-2dc1-4562-9afb-a749d55d8a31}</UniqueIdentifier>
@@ -34,22 +28,31 @@
     <Filter Include="3DGameFrameWork\System\Grapic\D3D">
       <UniqueIdentifier>{6550bd81-3f2f-4a8c-914e-b63d9d93dcc4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Shader">
+      <UniqueIdentifier>{e0b297ea-b6d8-48e2-9fca-92eabe29f622}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3DGameFrameWork\System\Grapic\Model">
+      <UniqueIdentifier>{0eb52a78-d451-4c15-9b0e-c552c0e67eb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3DGameFrameWork\System\Grapic\ColorShader">
+      <UniqueIdentifier>{03917613-b48a-42d1-854d-7529a3e0a779}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base">
+      <UniqueIdentifier>{a5c83e66-594c-494c-9705-bf1536d27640}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base\SingletonBase">
+      <UniqueIdentifier>{3763f488-666f-452f-9135-d242c91f7c75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base\Error">
+      <UniqueIdentifier>{c7e3b2c3-d814-4f05-89a8-a09c8b76bbb4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="singletonBase.h">
-      <Filter>Header Files\SingletonBase</Filter>
-    </ClInclude>
-    <ClInclude Include="c_System.h">
-      <Filter>3DGameFrameWork\System</Filter>
+      <Filter>Base\SingletonBase</Filter>
     </ClInclude>
     <ClInclude Include="Common\dxerr.h">
-      <Filter>3DGameFrameWork\Error</Filter>
+      <Filter>Base\Error</Filter>
     </ClInclude>
     <ClInclude Include="c_D3d.h">
       <Filter>3DGameFrameWork\System\Grapic\D3D</Filter>
@@ -57,22 +60,40 @@
     <ClInclude Include="c_Grapic.h">
       <Filter>3DGameFrameWork\System\Grapic</Filter>
     </ClInclude>
-    <ClInclude Include="c_Input.h">
+    <ClInclude Include="c_Model.h">
+      <Filter>3DGameFrameWork\System\Grapic\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="c_ColorShader.h">
+      <Filter>3DGameFrameWork\System\Grapic\ColorShader</Filter>
+    </ClInclude>
+    <ClInclude Include="c_System.h">
+      <Filter>3DGameFrameWork\System</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
       <Filter>3DGameFrameWork\System\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="WinBase.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="EnginBase.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="c_ControlWindow.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalManager.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WinMain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="c_System.cpp">
-      <Filter>3DGameFrameWork\System</Filter>
-    </ClCompile>
     <ClCompile Include="Common\dxerr.cpp">
-      <Filter>3DGameFrameWork\Error</Filter>
+      <Filter>Base\Error</Filter>
     </ClCompile>
     <ClCompile Include="c_D3d.cpp">
       <Filter>3DGameFrameWork\System\Grapic\D3D</Filter>
@@ -80,8 +101,37 @@
     <ClCompile Include="c_Grapic.cpp">
       <Filter>3DGameFrameWork\System\Grapic</Filter>
     </ClCompile>
-    <ClCompile Include="c_Input.cpp">
+    <ClCompile Include="c_Model.cpp">
+      <Filter>3DGameFrameWork\System\Grapic\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="c_ColorShader.cpp">
+      <Filter>3DGameFrameWork\System\Grapic\ColorShader</Filter>
+    </ClCompile>
+    <ClCompile Include="c_System.cpp">
+      <Filter>3DGameFrameWork\System</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
       <Filter>3DGameFrameWork\System\Input</Filter>
     </ClCompile>
+    <ClCompile Include="WinBase.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="c_ControlWindow.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalManager.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="color.vs">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="color.ps">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
   </ItemGroup>
 </Project>

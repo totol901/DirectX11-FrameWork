@@ -1,10 +1,3 @@
-﻿  stdafx.cpp
-  dxerr.cpp
-  WinMain.cpp
-  c_System.cpp
-  c_Input.cpp
-  c_Grapic.cpp
-  c_D3d.cpp
-  Generating Code...
+﻿  c_ControlWindow.cpp
   DirectX11_FrameWork.vcxproj -> C:\Users\totol\Documents\DirectX11-FrameWork\DirectX11_FrameWork\Debug\DirectX11_FrameWork.exe
   DirectX11_FrameWork.vcxproj -> C:\Users\totol\Documents\DirectX11-FrameWork\DirectX11_FrameWork\Debug\DirectX11_FrameWork.pdb (Full PDB)

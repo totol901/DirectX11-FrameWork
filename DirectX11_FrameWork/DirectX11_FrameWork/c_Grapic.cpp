@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "c_Grapic.h"
+#include "GlobalManager.h"
 
 c_Grapic::c_Grapic()
 	:m_pD3D(NULL)
@@ -10,7 +11,7 @@ c_Grapic::~c_Grapic()
 { 
 }
 
-bool c_Grapic::Initialize(int screenWidth, int screenHeight, HWND hwnd)
+bool c_Grapic::Initialize(int screenWidth, int screenHeight)
 { 
 	bool result;
 
@@ -24,7 +25,8 @@ bool c_Grapic::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 
 	// Initialize the Direct3D object.
 	result = m_pD3D->Initialize(screenWidth, screenHeight,
-		VSYNC_ENABLED, hwnd, e_windowStyle, SCREEN_DEPTH, SCREEN_NEAR);
+		VSYNC_ENABLED, GlobalManager::GetContorlWindow().GetControlWindowHandle(),
+		SCREEN_DEPTH, SCREEN_NEAR);
 	if (!result)
 	{
 		MessageBox(0, L"m_pD3D 초기화 오류", 0, 0);
