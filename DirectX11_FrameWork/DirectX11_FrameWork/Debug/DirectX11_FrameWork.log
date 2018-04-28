@@ -1,3 +1,14 @@
-﻿  c_ControlWindow.cpp
-  DirectX11_FrameWork.vcxproj -> C:\Users\totol\Documents\DirectX11-FrameWork\DirectX11_FrameWork\Debug\DirectX11_FrameWork.exe
-  DirectX11_FrameWork.vcxproj -> C:\Users\totol\Documents\DirectX11-FrameWork\DirectX11_FrameWork\Debug\DirectX11_FrameWork.pdb (Full PDB)
+﻿  stdafx.cpp
+  WinBase.cpp
+  MemoryManager.cpp
+c:\users\totol\documents\directx11-framework\directx11_framework\directx11_framework\memorymanager.cpp(30): error C2084: function 'void *operator new[](std::size_t,void *) throw()' already has a body
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\vcruntime_new.h(101): note: see previous definition of 'new[]'
+  GlobalManager.cpp
+  c_System.cpp
+  c_Model.cpp
+  InputManager.cpp
+  c_Grapic.cpp
+  c_D3d.cpp
+  c_ControlWindow.cpp
+  c_ColorShader.cpp
+  Generating Code...

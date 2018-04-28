@@ -155,11 +155,14 @@
     <ClInclude Include="c_ControlWindow.h" />
     <ClInclude Include="c_D3d.h" />
     <ClInclude Include="c_Grapic.h" />
+    <ClInclude Include="c_MemoryBlock.h" />
+    <ClInclude Include="c_MemoryPool.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="c_Model.h" />
     <ClInclude Include="c_System.h" />
     <ClInclude Include="EnginBase.h" />
     <ClInclude Include="GlobalManager.h" />
+    <ClInclude Include="MemoryManager.h" />
     <ClInclude Include="singletonBase.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -174,10 +177,13 @@
     <ClCompile Include="c_ControlWindow.cpp" />
     <ClCompile Include="c_D3d.cpp" />
     <ClCompile Include="c_Grapic.cpp" />
+    <ClCompile Include="c_MemoryBlock.cpp" />
+    <ClCompile Include="c_MemoryPool.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="c_Model.cpp" />
     <ClCompile Include="c_System.cpp" />
     <ClCompile Include="GlobalManager.cpp" />
+    <ClCompile Include="MemoryManager.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

@@ -17,6 +17,7 @@
 #include <cassert>
 #include "dxerr.h"
 #include <vector>
+#include <new>
 
 using namespace DirectX;
 using namespace DirectX::PackedVector;
