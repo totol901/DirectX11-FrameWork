@@ -1,5 +1,6 @@
 #pragma once
 #include "c_ControlWindow.h"
+#include "MemoryManager.h"
 
 using namespace GameEngine;
 
@@ -18,10 +19,11 @@ namespace GameEngine
 
 	public:
 		static c_ControlWindow &GetContorlWindow();
+		static MemoryManager &GetMemoryManager();
 
 	private:
 		static c_ControlWindow sM_ControlWindow;
-
+		static MemoryManager sM_MemooryManager;
 	};
 };
 
