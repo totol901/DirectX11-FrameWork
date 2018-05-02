@@ -1,2 +1,8 @@
-﻿  DirectX11_FrameWork.vcxproj -> C:\Users\totol\Documents\DirectX11-FrameWork\DirectX11_FrameWork\Debug\DirectX11_FrameWork.exe
+﻿  MemoryManager.cpp
+c:\users\totol\documents\directx11-framework\directx11_framework\directx11_framework\memorymanager.cpp(86): warning C4172: returning address of local variable or temporary: i
+c:\users\totol\documents\directx11-framework\directx11_framework\directx11_framework\memorymanager.cpp(98): warning C4172: returning address of local variable or temporary: i
+c:\users\totol\documents\directx11-framework\directx11_framework\directx11_framework\memorymanager.cpp(93): warning C4172: returning address of local variable or temporary: i
+c:\users\totol\documents\directx11-framework\directx11_framework\directx11_framework\memorymanager.cpp(103): warning C4172: returning address of local variable or temporary: i
+c:\users\totol\documents\directx11-framework\directx11_framework\directx11_framework\memorymanager.cpp(141): warning C4172: returning address of local variable or temporary: i
+  DirectX11_FrameWork.vcxproj -> C:\Users\totol\Documents\DirectX11-FrameWork\DirectX11_FrameWork\Debug\DirectX11_FrameWork.exe
   DirectX11_FrameWork.vcxproj -> C:\Users\totol\Documents\DirectX11-FrameWork\DirectX11_FrameWork\Debug\DirectX11_FrameWork.pdb (Full PDB)

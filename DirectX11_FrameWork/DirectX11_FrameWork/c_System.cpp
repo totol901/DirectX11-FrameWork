@@ -6,7 +6,7 @@ using namespace GameEngine;
 
 //------------------------------------------------------------------------------------
 c_System::c_System()
-	:m_pGraphics(NULL)
+	:m_pGraphics(nullptr)
 {
 }
 
@@ -18,11 +18,9 @@ c_System::~c_System()
 //------------------------------------------------------------------------------------
 bool c_System::Initialize(HINSTANCE hInstance, const wstring wS_ApplicationName)
 {
-	int screenWidth, screenHeight; 
-	bool result; 
-	
 	// 함수에 높이와 너비를 전달하기 전에 변수를 0으로 초기화한다. 
-	screenWidth = 0; screenHeight = 0; 
+	int screenWidth, screenHeight = 0; 
+	bool result = false;
 
 	// 윈도우 컨트롤 클래스 이용하여 윈도우 초기화 
 	GlobalManager::GetContorlWindow().CreateControlWindow(hInstance,
@@ -83,10 +81,8 @@ void c_System::Shutdown()
 void c_System::Run()
 {
 	MSG msg;
-	bool done, result;
-	ZeroMemory(&msg, sizeof(MSG));
-	// 루프를 위한 변수  
-	done = false;
+	bool done, result = false;
+	ZeroMemory(&msg, sizeof(MSG)); 
 
 	while (!done)
 	{
@@ -118,7 +114,7 @@ void c_System::Run()
 //------------------------------------------------------------------------------------
 bool c_System::Frame()
 {
-	bool result;
+	bool result = false;
 	//종료키 눌렀나 채크  
 	if (InputManager::GetSingleton()->IsKeyDown(VK_ESCAPE))
 	{

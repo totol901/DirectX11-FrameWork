@@ -15,6 +15,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR pS_cmdlin
 
 	bool result = false;
 
+	GlobalManager::GetMemoryManager().AddNewPool(1024, "뽀킹");
+
 	//엔진 시스템 생성
 	c_System g_cSystem;
 
@@ -32,7 +34,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR pS_cmdlin
 }
 
 //------------------------------------------------------------------------------------
-LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+LRESULT CALLBACK WndProc(const HWND hWnd, const UINT uMsg, const WPARAM wParam, const LPARAM lParam)
 {
 	switch (uMsg)
 	{
