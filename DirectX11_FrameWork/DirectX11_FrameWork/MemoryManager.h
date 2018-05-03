@@ -1,23 +1,26 @@
 #pragma once
 #include "c_MemoryPool.h"
 
-class MemoryManager
+namespace GameEngine
 {
-public:
-	MemoryManager();
-	~MemoryManager();
-	
-	void AddNewPool(const int PoolSize, const char* name);
-	void DeletePool(const int poolID);
-	void DefragPool();
-	void QuaryPool();
-	
-private:
-	int DefaultPoolID;
-	c_MemoryPool* m_pFirstPool;
-	c_MemoryPool* m_pLastPool;
-	void* AlignedMalloc(const size_t requredBytes, const size_t alignemnet, OUT void* original);
+	class MemoryManager
+	{
+	public:
+		MemoryManager();
+		~MemoryManager();
 
+		unsigned int AddNewPool(const int PoolSize, const char* name);
+		void DeletePool(const int poolID);
+		void DefragPool();
+		void QuaryPool();
+
+	private:
+		int DefaultPoolID;
+		c_MemoryPool* m_pFirstPool;
+		c_MemoryPool* m_pLastPool;
+		void* AlignedMalloc(const size_t requredBytes, const size_t alignemnet, OUT void** original);
+
+	};
 };
 
 //글로벌 오버라이드 new, delte opperator

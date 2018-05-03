@@ -46,6 +46,9 @@
     <Filter Include="Base\Error">
       <UniqueIdentifier>{c7e3b2c3-d814-4f05-89a8-a09c8b76bbb4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Memory Management">
+      <UniqueIdentifier>{168e521b-6cac-4875-8d78-2d26dbabe188}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="singletonBase.h">
@@ -90,13 +93,16 @@
     <ClInclude Include="targetver.h">
       <Filter>Base</Filter>
     </ClInclude>
-    <ClInclude Include="MemoryManager.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="c_MemoryBlock.h">
+      <Filter>Memory Management</Filter>
     </ClInclude>
     <ClInclude Include="c_MemoryPool.h">
-      <Filter>Header Files</Filter>
+      <Filter>Memory Management</Filter>
     </ClInclude>
-    <ClInclude Include="c_MemoryBlock.h">
+    <ClInclude Include="MemoryManager.h">
+      <Filter>Memory Management</Filter>
+    </ClInclude>
+    <ClInclude Include="c_Hash.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -134,13 +140,16 @@
     <ClCompile Include="GlobalManager.cpp">
       <Filter>Base</Filter>
     </ClCompile>
-    <ClCompile Include="MemoryManager.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="c_MemoryBlock.cpp">
+      <Filter>Memory Management</Filter>
     </ClCompile>
     <ClCompile Include="c_MemoryPool.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Memory Management</Filter>
     </ClCompile>
-    <ClCompile Include="c_MemoryBlock.cpp">
+    <ClCompile Include="MemoryManager.cpp">
+      <Filter>Memory Management</Filter>
+    </ClCompile>
+    <ClCompile Include="c_Hash.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

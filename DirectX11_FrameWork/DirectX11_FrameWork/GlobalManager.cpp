@@ -2,15 +2,21 @@
 #include "GlobalManager.h"
 
 c_ControlWindow GlobalManager::sM_ControlWindow;
-MemoryManager GlobalManager::sM_MemooryManager;
+c_Hash GlobalManager::sM_Hash;
+MemoryManager GlobalManager::sM_MemoryManager;
 
 //------------------------------------------------------------------------------------
-c_ControlWindow &GlobalManager::GetContorlWindow()
+c_ControlWindow* GlobalManager::GetContorlWindow()
 {
-	return sM_ControlWindow;
+	return &sM_ControlWindow;
 }
-
-MemoryManager & GameEngine::GlobalManager::GetMemoryManager()
+//------------------------------------------------------------------------------------
+MemoryManager* GlobalManager::GetMemoryManager()
 {
-	return sM_MemooryManager;
+	return &sM_MemoryManager;
+}
+//------------------------------------------------------------------------------------
+c_Hash* GlobalManager::GetHash()
+{
+	return &sM_Hash;
 }

@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "MemoryManager.h"
 
+using namespace GameEngine;
+
 //------------------------------------------------------------------------------------
 MemoryManager::MemoryManager()
 	:m_pFirstPool(nullptr),
@@ -14,7 +16,7 @@ MemoryManager::~MemoryManager()
 }
 
 //------------------------------------------------------------------------------------
-void MemoryManager::AddNewPool(const int poolSize, const char* name)
+unsigned int MemoryManager::AddNewPool(const int poolSize, const char* name)
 {
 	void* alignedPoolPointer = nullptr;
 	void* originalPoolPointer = nullptr;
@@ -22,20 +24,42 @@ void MemoryManager::AddNewPool(const int poolSize, const char* name)
 	c_MemoryPool* newPool = nullptr;
 
 	//정렬된 메모리 풀 생성
-	alignedPoolPointer = AlignedMalloc(poolSize * 1024, 16, OUT originalPoolPointer);
+	alignedPoolPointer = AlignedMalloc(poolSize * 1024, 16, OUT &originalPoolPointer);
 	if (alignedPoolPointer == nullptr)
 	{
 		//OutputDebugString(L"하학");
-		return;
+		return 0;
 	}
 
 	alignedMemoryPointer = reinterpret_cast<void*>(reinterpret_cast<size_t>(alignedPoolPointer) + sizeof(c_MemoryPool));
 	//생성된 매모리 풀로 할당
 	newPool = new(alignedPoolPointer) c_MemoryPool(name, originalPoolPointer, alignedMemoryPointer);
+
+	if (m_pFirstPool == nullptr)
+	{
+		m_pFirstPool = newPool;
+	}
+
+	return newPool->GetPoolID();
 }
 //------------------------------------------------------------------------------------
 void MemoryManager::DeletePool(const int poolID)
 {
+	c_MemoryPool* dyingPool;
+	void* memoryStart;
+
+	dyingPool = m_pFirstPool;
+	while (dyingPool != nullptr)
+	{
+		if (dyingPool->GetPoolID() == poolID)
+		{
+			memoryStart = dyingPool->GetOriginalMemoryStart();
+			dyingPool->~c_MemoryPool();
+			free(memoryStart);
+			return;
+		}
+		dyingPool = dyingPool->GetNextPool();
+	}
 }
 //------------------------------------------------------------------------------------
 void MemoryManager::DefragPool()
@@ -46,7 +70,7 @@ void MemoryManager::QuaryPool()
 {
 }
 //------------------------------------------------------------------------------------
-void * MemoryManager::AlignedMalloc(const size_t requredBytes, const size_t alignemnet, OUT void* original)
+void * MemoryManager::AlignedMalloc(const size_t requredBytes, const size_t alignemnet, OUT void** original)
 {
 	/*정렬된 커스텀 동적할당*/
 	//할당된 매모리 구조 (ex. 운영체제 32bit, 16바이트 정렬시 [alignemnet == 16])
@@ -63,7 +87,7 @@ void * MemoryManager::AlignedMalloc(const size_t requredBytes, const size_t alig
 	size_t offset = 0;	//c_MemoryPool 크기 + 정렬 바이트 - 1 (정렬을 위한 필요 바이트)
 
 	offset = alignemnet - 1 + sizeof(c_MemoryPool);
-	if ((original = malloc(offset + requredBytes)) == nullptr)
+	if ((*original = malloc(offset + requredBytes)) == nullptr)
 	{
 		//TOOD: malloc 에러, 로그 파일 추가, 종료
 		return nullptr;
@@ -73,7 +97,7 @@ void * MemoryManager::AlignedMalloc(const size_t requredBytes, const size_t alig
 	//16 미만의 수(2진수)를 0으로 변환시켜( &연산) 정렬화 해줌 [alignemnet == 16]
 	//c_MemoryPool의 크기를 빼줘서 c_MemoryPool의 변수들 공간을 만듬
 	//OS. c_MemoryPool은 컴파일러 padding에 의해 Word에 맞춰 자동 정렬화가 됨
-	aligned = reinterpret_cast<void*>(reinterpret_cast<size_t>(original) + offset & ~(alignemnet - 1) - sizeof(c_MemoryPool));
+	aligned = reinterpret_cast<void*>(reinterpret_cast<size_t>(*original) + offset & ~(alignemnet - 1) - sizeof(c_MemoryPool));
 
 	return aligned;
 }

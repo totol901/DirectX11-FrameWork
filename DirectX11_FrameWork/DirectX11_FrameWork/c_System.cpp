@@ -23,7 +23,7 @@ bool c_System::Initialize(HINSTANCE hInstance, const wstring wS_ApplicationName)
 	bool result = false;
 
 	// 윈도우 컨트롤 클래스 이용하여 윈도우 초기화 
-	GlobalManager::GetContorlWindow().CreateControlWindow(hInstance,
+	GlobalManager::GetContorlWindow()->CreateControlWindow(hInstance,
 		wS_ApplicationName, E_WINDOW_MODE_STYLE::E_WINDOW,
 		screenWidth, screenHeight);
 	
@@ -72,7 +72,7 @@ void c_System::Shutdown()
 	}
 
 	//윈도우 컨트롤 클래스 이용하여 윈도우 종료
-	GlobalManager::GetContorlWindow().DestroyControlWindow();
+	GlobalManager::GetContorlWindow()->DestroyControlWindow();
 
 	return;
 }
@@ -81,7 +81,7 @@ void c_System::Shutdown()
 void c_System::Run()
 {
 	MSG msg;
-	bool done, result = false;
+	bool done = false, result = false;
 	ZeroMemory(&msg, sizeof(MSG)); 
 
 	while (!done)

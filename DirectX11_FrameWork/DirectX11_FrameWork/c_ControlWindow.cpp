@@ -15,7 +15,7 @@ c_ControlWindow::~c_ControlWindow()
 }
 
 //------------------------------------------------------------------------------------
-bool GameEngine::c_ControlWindow::CreateControlWindow(HINSTANCE hInstance, wstring wS_ApplicationName, E_WINDOW_MODE_STYLE eWindowModeStyle, int &iScreenWidth, int &iScreenHeight)
+bool c_ControlWindow::CreateControlWindow(HINSTANCE hInstance, wstring wS_ApplicationName, E_WINDOW_MODE_STYLE eWindowModeStyle, int &iScreenWidth, int &iScreenHeight)
 {
 	WNDCLASSEX wc;
 	DEVMODE dmScreenSettings;
@@ -106,7 +106,7 @@ bool GameEngine::c_ControlWindow::CreateControlWindow(HINSTANCE hInstance, wstri
 }
 
 //------------------------------------------------------------------------------------
-void GameEngine::c_ControlWindow::DestroyControlWindow()
+void c_ControlWindow::DestroyControlWindow()
 {
 	// Ä¿¼­ º¸¿©ÁÜ
 	ShowCursor(true);
@@ -145,7 +145,7 @@ void c_ControlWindow::SetWindowedFullScreenMode()
 }
 
 //------------------------------------------------------------------------------------
-LRESULT GameEngine::c_ControlWindow::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
+LRESULT c_ControlWindow::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
 {
 	switch (umsg)
 	{

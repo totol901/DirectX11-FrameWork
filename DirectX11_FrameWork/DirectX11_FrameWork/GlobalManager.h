@@ -1,6 +1,7 @@
 #pragma once
 #include "c_ControlWindow.h"
 #include "MemoryManager.h"
+#include "c_Hash.h"
 
 using namespace GameEngine;
 
@@ -18,12 +19,14 @@ namespace GameEngine
 		GlobalManager& operator= (GlobalManager &&) = delete;
 
 	public:
-		static c_ControlWindow &GetContorlWindow();
-		static MemoryManager &GetMemoryManager();
+		static c_ControlWindow* GetContorlWindow();
+		static MemoryManager* GetMemoryManager();
+		static c_Hash* GetHash();
 
 	private:
 		static c_ControlWindow sM_ControlWindow;
-		static MemoryManager sM_MemooryManager;
+		static MemoryManager sM_MemoryManager;
+		static c_Hash sM_Hash;
 	};
 };
 

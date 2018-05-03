@@ -155,6 +155,7 @@
     <ClInclude Include="c_ControlWindow.h" />
     <ClInclude Include="c_D3d.h" />
     <ClInclude Include="c_Grapic.h" />
+    <ClInclude Include="c_Hash.h" />
     <ClInclude Include="c_MemoryBlock.h" />
     <ClInclude Include="c_MemoryPool.h" />
     <ClInclude Include="InputManager.h" />
@@ -177,6 +178,7 @@
     <ClCompile Include="c_ControlWindow.cpp" />
     <ClCompile Include="c_D3d.cpp" />
     <ClCompile Include="c_Grapic.cpp" />
+    <ClCompile Include="c_Hash.cpp" />
     <ClCompile Include="c_MemoryBlock.cpp" />
     <ClCompile Include="c_MemoryPool.cpp" />
     <ClCompile Include="InputManager.cpp" />

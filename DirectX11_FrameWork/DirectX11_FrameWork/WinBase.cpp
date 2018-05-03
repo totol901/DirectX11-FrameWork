@@ -14,8 +14,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR pS_cmdlin
 #endif
 
 	bool result = false;
+	unsigned int memoryPool;
 
-	GlobalManager::GetMemoryManager().AddNewPool(1024, "뽀킹");
+	
+	memoryPool = GlobalManager::GetMemoryManager()->AddNewPool(1024, "뽀킹");
 
 	//엔진 시스템 생성
 	c_System g_cSystem;
@@ -30,11 +32,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR pS_cmdlin
 	//엔진 시스템 종료
 	g_cSystem.Shutdown();
 
+	GlobalManager::GetMemoryManager()->DeletePool(memoryPool);
+
 	return 0;
 }
 
 //------------------------------------------------------------------------------------
-LRESULT CALLBACK WndProc(const HWND hWnd, const UINT uMsg, const WPARAM wParam, const LPARAM lParam)
+LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch (uMsg)
 	{
@@ -54,6 +58,6 @@ LRESULT CALLBACK WndProc(const HWND hWnd, const UINT uMsg, const WPARAM wParam, 
 	}
 
 	// 다른 종류의 메시지 처리
-	return GlobalManager::GetContorlWindow().MessageHandler(hWnd, uMsg, wParam, lParam);
+	return GlobalManager::GetContorlWindow()->MessageHandler(hWnd, uMsg, wParam, lParam);
 }
 

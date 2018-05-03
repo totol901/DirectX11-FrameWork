@@ -1,8 +1,12 @@
 #pragma once
-class c_MemoryBlock
+
+namespace GameEngine
 {
-public:
-	c_MemoryBlock();
-	~c_MemoryBlock();
+	class c_MemoryBlock
+	{
+	public:
+		c_MemoryBlock();
+		~c_MemoryBlock();
+	};
 };
 
