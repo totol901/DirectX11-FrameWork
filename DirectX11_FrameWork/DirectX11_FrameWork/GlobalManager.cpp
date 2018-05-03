@@ -6,9 +6,9 @@ c_Hash GlobalManager::sM_Hash;
 MemoryManager GlobalManager::sM_MemoryManager;
 
 //------------------------------------------------------------------------------------
-c_ControlWindow* GlobalManager::GetContorlWindow()
+c_ControlWindow& GlobalManager::GetContorlWindow()
 {
-	return &sM_ControlWindow;
+	return sM_ControlWindow;
 }
 //------------------------------------------------------------------------------------
 MemoryManager* GlobalManager::GetMemoryManager()

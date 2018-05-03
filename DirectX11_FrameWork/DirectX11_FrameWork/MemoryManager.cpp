@@ -105,64 +105,64 @@ void * MemoryManager::AlignedMalloc(const size_t requredBytes, const size_t alig
 //------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------
 //생성자를 불러오지 않은 new 연산자[가장 간단함]
-void* operator new(size_t size)
-{
-	OutputDebugString(L"size_t하학");
-	int i = 0;
-	return &i;
-}
-//------------------------------------------------------------------------------------
-void* operator new(size_t size, const std::nothrow_t&)
-{
-	OutputDebugString(L"sizenothrow_t하학");
-	int i = 0;
-	return &i;
-}
-//------------------------------------------------------------------------------------
-void* operator new[](size_t size)
-{int i = 0; OutputDebugString(L"new[]하학");
-return &i;
-}
-//------------------------------------------------------------------------------------
-void* operator new[](size_t size, const std::nothrow_t&)
-{int i = 0; OutputDebugString(L"new[](size_t size, const std::nothrow_t&하학");
-return &i;
-}
-//------------------------------------------------------------------------------------
-void operator delete(void* p)
-{
-}
-//------------------------------------------------------------------------------------
-void operator delete(void* p, std::nothrow_t&)
-{
-}
-//------------------------------------------------------------------------------------
-void operator delete(void* p, size_t)
-{
-}
-//------------------------------------------------------------------------------------
-void operator delete(void* p, size_t, nothrow_t&)
-{
-}
-//------------------------------------------------------------------------------------
-void operator delete[](void* p)
-{
-}
-//------------------------------------------------------------------------------------
-void operator delete[](void* p, std::nothrow_t&)
-{
-}
-//------------------------------------------------------------------------------------
-void operator delete[](void* p, size_t)
-{
-}
-//------------------------------------------------------------------------------------
-void operator delete[](void* p, size_t, nothrow_t&)
-{
-}
-//------------------------------------------------------------------------------------
-void* operator new (size_t, int PoolID)
-{
-	int i = 0; OutputDebugString(L"하학");
-	return &i;
-}
+//void* operator new(size_t size)
+//{
+//	OutputDebugString(L"size_t하학");
+//	int i = 0;
+//	return &i;
+//}
+////------------------------------------------------------------------------------------
+//void* operator new(size_t size, const std::nothrow_t&)
+//{
+//	OutputDebugString(L"sizenothrow_t하학");
+//	int i = 0;
+//	return &i;
+//}
+////------------------------------------------------------------------------------------
+//void* operator new[](size_t size)
+//{int i = 0; OutputDebugString(L"new[]하학");
+//return &i;
+//}
+////------------------------------------------------------------------------------------
+//void* operator new[](size_t size, const std::nothrow_t&)
+//{int i = 0; OutputDebugString(L"new[](size_t size, const std::nothrow_t&하학");
+//return &i;
+//}
+////------------------------------------------------------------------------------------
+//void operator delete(void* p)
+//{
+//}
+////------------------------------------------------------------------------------------
+//void operator delete(void* p, std::nothrow_t&)
+//{
+//}
+////------------------------------------------------------------------------------------
+//void operator delete(void* p, size_t)
+//{
+//}
+////------------------------------------------------------------------------------------
+//void operator delete(void* p, size_t, std::nothrow_t&)
+//{
+//}
+////------------------------------------------------------------------------------------
+//void operator delete[](void* p)
+//{
+//}
+////------------------------------------------------------------------------------------
+//void operator delete[](void* p, std::nothrow_t&)
+//{
+//}
+////------------------------------------------------------------------------------------
+//void operator delete[](void* p, size_t)
+//{
+//}
+////------------------------------------------------------------------------------------
+//void operator delete[](void* p, size_t, std::nothrow_t&)
+//{
+//}
+////------------------------------------------------------------------------------------
+//void* operator new (size_t, int PoolID)
+//{
+//	int i = 0; OutputDebugString(L"하학");
+//	return &i;
+//}

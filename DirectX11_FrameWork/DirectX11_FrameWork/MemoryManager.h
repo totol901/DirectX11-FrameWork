@@ -24,19 +24,23 @@ namespace GameEngine
 };
 
 //글로벌 오버라이드 new, delte opperator
-void* operator new(size_t size);
-void* operator new(size_t size, const std::nothrow_t&);
+//stl과 new 오버라이드는 양립할수 없다.
+//stl함수 안에 보통의 <new>를 사용하는데 오버라이딩 하면
+//오류가 터져나오기 때문이다. (일일이 다 고쳐주거나, stl을 사용하지 않거나 둘중 하나!)
 
-void* operator new[](size_t size);
-void* operator new[](size_t size, const std::nothrow_t&);
-
-void operator delete(void* p);
-void operator delete(void* p, std::nothrow_t&);
-void operator delete(void* p, size_t);
-void operator delete(void* p, size_t, nothrow_t&);
-void operator delete[](void* p);
-void operator delete[](void* p, std::nothrow_t&);
-void operator delete[](void* p, size_t);
-void operator delete[](void* p, size_t, nothrow_t&);
-
-void* operator new (size_t, int PoolID);
+//void* operator new(size_t size);
+//void* operator new(size_t size, const std::nothrow_t&);
+//
+//void* operator new[](size_t size);
+//void* operator new[](size_t size, const std::nothrow_t&);
+//
+//void operator delete(void* p);
+//void operator delete(void* p, std::nothrow_t&);
+//void operator delete(void* p, size_t);
+//void operator delete(void* p, size_t, std::nothrow_t&);
+//void operator delete[](void* p);
+//void operator delete[](void* p, std::nothrow_t&);
+//void operator delete[](void* p, size_t);
+//void operator delete[](void* p, size_t, std::nothrow_t&);
+//
+//void* operator new (size_t, int PoolID);

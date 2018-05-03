@@ -10,9 +10,9 @@ namespace GameEngine
 	class c_D3d
 	{
 	private:
-		string m_videoCardDescription;					//비디오 카드 이름
+		std::string m_videoCardDescription;					//비디오 카드 이름
 		SIZE_T m_videoCardMemory;						//비디오 카드 메모리량
-		vector<IDXGIAdapter*> m_vAdapters;				//어뎁터(비디오카드) 벡터
+		std::vector<IDXGIAdapter*> m_vAdapters;				//어뎁터(비디오카드) 벡터
 		bool m_vsync_enabled;							//수직 동기 유무
 		UINT m_4xMsaaQuality;							//멀티 셈플링 퀄리티
 	

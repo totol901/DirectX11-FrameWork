@@ -16,14 +16,14 @@ c_System::~c_System()
 }
 
 //------------------------------------------------------------------------------------
-bool c_System::Initialize(HINSTANCE hInstance, const wstring wS_ApplicationName)
+bool c_System::Initialize(HINSTANCE hInstance, const std::wstring wS_ApplicationName)
 {
 	// 함수에 높이와 너비를 전달하기 전에 변수를 0으로 초기화한다. 
 	int screenWidth, screenHeight = 0; 
 	bool result = false;
 
 	// 윈도우 컨트롤 클래스 이용하여 윈도우 초기화 
-	GlobalManager::GetContorlWindow()->CreateControlWindow(hInstance,
+	GlobalManager::GetContorlWindow().CreateControlWindow(hInstance,
 		wS_ApplicationName, E_WINDOW_MODE_STYLE::E_WINDOW,
 		screenWidth, screenHeight);
 	
@@ -72,7 +72,7 @@ void c_System::Shutdown()
 	}
 
 	//윈도우 컨트롤 클래스 이용하여 윈도우 종료
-	GlobalManager::GetContorlWindow()->DestroyControlWindow();
+	GlobalManager::GetContorlWindow().DestroyControlWindow();
 
 	return;
 }

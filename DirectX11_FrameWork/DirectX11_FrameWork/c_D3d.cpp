@@ -48,9 +48,9 @@ bool c_D3d::Initialize(const int& screenWidth, const int& screenHeight,
 
 	//파일 출력 
 	//시작
-	ofstream fon("VideoInfo.txt", ios::out);
+	std::ofstream fon("VideoInfo.txt", std::ios::out);
 
-	wostringstream outs;
+	std::wostringstream outs;
 	
 	UINT MaxGrapicCardMemIndex = 0;
 	SIZE_T MaxMemSize = 0;
@@ -226,7 +226,7 @@ bool c_D3d::Initialize(const int& screenWidth, const int& screenHeight,
 		swapChainDesc.SampleDesc.Quality = 0;
 	}
 	// 윈도우 모드 또는 풀스크린 모드를 설정합니다. 
-	if(GlobalManager::GetContorlWindow()->GetWindowModeStyle()
+	if(GlobalManager::GetContorlWindow().GetWindowModeStyle()
 		== E_WINDOW_MODE_STYLE::E_FULL_SCREEN)
 	{
 		swapChainDesc.Windowed = false; 

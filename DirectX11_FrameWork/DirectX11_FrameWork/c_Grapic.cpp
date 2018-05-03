@@ -25,7 +25,7 @@ bool c_Grapic::Initialize(int screenWidth, int screenHeight)
 
 	// Initialize the Direct3D object.
 	result = m_pD3D->Initialize(screenWidth, screenHeight,
-		VSYNC_ENABLED, GlobalManager::GetContorlWindow()->GetControlWindowHandle(),
+		VSYNC_ENABLED, GlobalManager::GetContorlWindow().GetControlWindowHandle(),
 		SCREEN_DEPTH, SCREEN_NEAR);
 	if (!result)
 	{

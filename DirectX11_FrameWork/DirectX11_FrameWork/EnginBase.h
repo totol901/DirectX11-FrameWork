@@ -21,7 +21,6 @@
 
 using namespace DirectX;
 using namespace DirectX::PackedVector;
-using namespace std;
 
 /** 간단 d3d error checker (출처 : 3D 게임 프로그래밍 입문, 프랭크 D.루나)**/
 #if defined(DEBUG) | defined(_DEBUG)

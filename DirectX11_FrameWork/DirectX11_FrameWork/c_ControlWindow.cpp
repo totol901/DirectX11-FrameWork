@@ -15,7 +15,7 @@ c_ControlWindow::~c_ControlWindow()
 }
 
 //------------------------------------------------------------------------------------
-bool c_ControlWindow::CreateControlWindow(HINSTANCE hInstance, wstring wS_ApplicationName, E_WINDOW_MODE_STYLE eWindowModeStyle, int &iScreenWidth, int &iScreenHeight)
+bool c_ControlWindow::CreateControlWindow(HINSTANCE hInstance, std::wstring wS_ApplicationName, E_WINDOW_MODE_STYLE eWindowModeStyle, int &iScreenWidth, int &iScreenHeight)
 {
 	WNDCLASSEX wc;
 	DEVMODE dmScreenSettings;

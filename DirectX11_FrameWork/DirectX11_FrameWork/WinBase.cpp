@@ -15,7 +15,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR pS_cmdlin
 
 	bool result = false;
 	unsigned int memoryPool;
-
+	
 	
 	memoryPool = GlobalManager::GetMemoryManager()->AddNewPool(1024, "뽀킹");
 
@@ -58,6 +58,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	}
 
 	// 다른 종류의 메시지 처리
-	return GlobalManager::GetContorlWindow()->MessageHandler(hWnd, uMsg, wParam, lParam);
+	return GlobalManager::GetContorlWindow().MessageHandler(hWnd, uMsg, wParam, lParam);
 }
 

@@ -17,7 +17,7 @@ namespace GameEngine
 		~c_ControlWindow();
 
 		/** 윈도우 초기화 함수 **/
-		bool CreateControlWindow(HINSTANCE hInstance, wstring wS_ApplicationName, E_WINDOW_MODE_STYLE eWindowModeStyle, int &iScreenWidth, int &iScreenHeight);
+		bool CreateControlWindow(HINSTANCE hInstance, std::wstring wS_ApplicationName, E_WINDOW_MODE_STYLE eWindowModeStyle, int &iScreenWidth, int &iScreenHeight);
 		/** 윈도우 해제 함수 **/
 		void DestroyControlWindow();
 		/** 윈도우 창모드 변환 함수 **/
@@ -33,7 +33,7 @@ namespace GameEngine
 		const E_WINDOW_MODE_STYLE &GetWindowModeStyle();
 
 	private:
-		wstring m_wS_ApplicationName;
+		std::wstring m_wS_ApplicationName;
 		E_WINDOW_MODE_STYLE m_eWindowModeStyle;
 		HINSTANCE m_hInstance;
 		HWND m_hContorlWindowHandle;

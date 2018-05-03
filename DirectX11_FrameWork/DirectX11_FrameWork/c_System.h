@@ -12,7 +12,7 @@ namespace GameEngine
 
 	public:
 		/** 시스템 초기화 함수 **/
-		bool Initialize(HINSTANCE hInstance, const wstring wS_ApplicationName);
+		bool Initialize(HINSTANCE hInstance, const std::wstring wS_ApplicationName);
 		/** 시스템 해제 함수 **/
 		void Shutdown();
 		/** 시스템 구동 함수 **/
